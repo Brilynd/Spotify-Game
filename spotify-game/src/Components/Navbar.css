@@ -55,10 +55,12 @@ div .Navbar-Searchbar{
 }
 
 #navbar-signin{
+align-self: center;
 background: transparent;
 border:1px solid transparent;
 color: #b3b3b3;
 font-size: 16px;
+text-decoration: none;
 }
 #navbar-signin:hover{
     color: white;
