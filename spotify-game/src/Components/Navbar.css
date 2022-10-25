@@ -1,0 +1,7 @@
+.Navbar-Container{
+    display: flex;
+}
+.Navbar-Container svg{
+    width: 300px;
+    height: 100px;
+}
