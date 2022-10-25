@@ -59,7 +59,22 @@ const App = () => {
   },[search])
   //NavbarSearch returns the searchbar input from the Navbar and passes up the value
   return (
+    
     <div>
+      <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
       <Navbar Navbarsearch={(search) => setSearch(search)} />
       <p>{search}</p>
       <ul className="App-Search-Results">{results.length!=1 && results.map((artist)=>{
