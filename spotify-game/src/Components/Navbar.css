@@ -1,7 +1,79 @@
 .Navbar-Container{
     display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+.Navbar-Container div{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 .Navbar-Container svg{
     width: 300px;
-    height: 100px;
+    height: 80px;
+}
+.Left-Navbar{
+    display: flex;
+    color: #b3b3b3;
+    padding: 0;
+}
+.Left-Navbar ul{
+    padding: 0;
+}
+.Left-Navbar li{
+    font-weight: 300;
+    font-size: 16px;
+    list-style: none;
+    margin-left: 30px;
+    width:max-content;
+    align-self: center;
+    transition: all 250ms ease-in-out;
+}
+.Left-Navbar li:hover{
+    transform: scale(1.1);
+    color: white;
+}
+.Right-Navbar{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.Navbar-Searchbar{
+    width: 200px;
+    height: 25px;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+div .Navbar-Searchbar{
+    background-color: white;
+    padding: .5% 2%;
+    border-radius: 16px;
+    align-self: center;
+}
+
+#navbar-signin{
+background: transparent;
+border:1px solid transparent;
+color: #b3b3b3;
+font-size: 16px;
+}
+#navbar-signin:hover{
+    color: white;
+}
+#navbar-signup{
+font-size: 16px;
+color: black;
+background: white;
+border:1px solid transparent;
+height: 45px;
+width: 110px;
+margin-left: 15px;
+border-radius: 60px;
+align-self: center;
+}
+#navbar-signup:hover{
+    transform: scale(1.05);
 }
