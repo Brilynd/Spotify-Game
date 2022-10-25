@@ -79,3 +79,9 @@ align-self: center;
 #navbar-signup:hover{
     transform: scale(1.05);
 }
+
+#navbar-username{
+    color: white;
+    vertical-align: middle;
+    align-self: center;
+}
