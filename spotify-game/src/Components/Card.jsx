@@ -5,7 +5,7 @@ return(
         <img src={image}></img>
         <p>{artistName}</p>
         <p>Artist</p>
-        <p>{followers}</p>
+        <p>Followers: {followers}</p>
     </li>
 )
 }
