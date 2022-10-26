@@ -1,3 +1,4 @@
+import "./Card.css"
 const Card = ({image,artistName,followers})=>{
 return(
     <li class="flex-item">

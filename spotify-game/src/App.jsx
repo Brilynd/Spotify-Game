@@ -1,4 +1,5 @@
 import Navbar from "./Components/Navbar";
+import Card from "./Components/Card";
 import "./App.css";
 import { getTokenFromUrl } from "./Functions/spotify";
 import SpotifyWebApi from "spotify-web-api-js";
