@@ -7,9 +7,10 @@
     color: white;
     font-weight: bold;
     font-size: 3em;
-    margin: 5px;
+    margin: 9px;
     border-radius: 7px;
     text-align: left;
+    transition: 0.3s;
   }
   .flex-item img {
     border: 0;
@@ -21,6 +22,7 @@
     padding: 0;
     margin-left: 16px;
     margin-top: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
   .flex-item p {
     margin: 0;
@@ -31,7 +33,7 @@
     line-height: 24px;
   }
   .flex-item p:nth-child(3) {
-    font-size: 14px;
+    font-size: 15px;
     color: rgb(167, 167, 167);
     font-weight: 500;
   }

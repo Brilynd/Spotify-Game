@@ -13,7 +13,7 @@ body{
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  padding: 5px;
+  padding: 9px;
   margin: 0;
   list-style: none;
   color: white;
