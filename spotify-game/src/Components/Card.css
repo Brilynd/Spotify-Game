@@ -12,17 +12,24 @@
     text-align: left;
     transition: 0.3s;
   }
+
   .flex-item img {
+
     border: 0;
     width: 184px;
     height: 184px;
-    border-radius: 7px;
     background-color: white;
     margin: 0;
     padding: 0;
     margin-left: 16px;
     margin-top: 16px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  #Gamemode{
+    border-radius: 100%;
+  }
+  #Artist{
+    border-radius: 7px;
   }
   .flex-item p {
     margin: 0;

@@ -1,11 +1,11 @@
 import "./Card.css"
-const Card = ({image,artistName,followers})=>{
+const Card = ({image,displayName,followers,artistID,type})=>{
 return(
-    <li class="flex-item">
-        <img src={image}></img>
-        <p>{artistName}</p>
-        <p>Artist</p>
-        <p>Followers: {followers}</p>
+    <li class={'flex-item'} onClick={()=>{console.log(artistID)}}>
+        <img id={type=="Gamemode"?"Gamemode":"Artist"} src={image}></img>
+        <p>{displayName}</p>
+        <p>{type}</p>
+        {followers!="" && <p>Followers: {followers}</p>}
     </li>
 )
 }
