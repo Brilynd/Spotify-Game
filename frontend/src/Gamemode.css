@@ -1,0 +1,9 @@
+.App-Search-Results{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 9px;
+    margin: 0;
+    list-style: none;
+    color: white;
+  }

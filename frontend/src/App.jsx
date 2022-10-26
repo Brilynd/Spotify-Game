@@ -65,7 +65,6 @@ const App = () => {
     <div>
       <BackgroundEffect/>
       <Navbar Navbarsearch={(search) => setSearch(search)} />
-      <p>{search}</p>
       <ul className="App-Search-Results">{results.length!=1 && results.map((artist)=>{
         return(
         <Card displayName = {artist.name} image={artist.images.length!=0 && artist.images[1].url} followers={artist.followers.total} type={"Artist"} artistID={artist.id} route={"/Gamemode"}/>

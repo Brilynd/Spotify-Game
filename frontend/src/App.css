@@ -1,0 +1,21 @@
+html{
+  background-color: #121212;
+  font-family: proxima-nova, sans-serif;
+font-style: normal;
+font-weight: 100;
+
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.App-Search-Results{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 9px;
+  margin: 0;
+  list-style: none;
+  color: white;
+}
+
