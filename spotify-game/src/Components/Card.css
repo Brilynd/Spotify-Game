@@ -1,0 +1,47 @@
+ 
+  .flex-item {
+    background: #181818;
+    width: 216px;
+    height: 294px;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    margin: 5px;
+    border-radius: 7px;
+    text-align: left;
+  }
+  .flex-item img {
+    border: 0;
+    width: 184px;
+    height: 184px;
+    border-radius: 7px;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    margin-left: 16px;
+    margin-top: 16px;
+  }
+  .flex-item p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-left: 16px;
+    line-height: 24px;
+  }
+  .flex-item p:nth-child(3) {
+    font-size: 14px;
+    color: rgb(167, 167, 167);
+    font-weight: 500;
+  }
+  .flex-item p:nth-child(4) {
+    color: #1ed760;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  
+  .flex-item:hover {
+    background-color: #272727;
+    cursor: pointer;
+  }

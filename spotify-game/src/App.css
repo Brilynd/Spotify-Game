@@ -10,7 +10,12 @@ body{
   padding: 0;
 }
 .App-Search-Results{
-  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 5px;
+  margin: 0;
+  list-style: none;
 }
 
 .area{
