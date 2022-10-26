@@ -80,7 +80,7 @@ const App = () => {
       <p>{search}</p>
       <ul className="App-Search-Results">{results.length!=1 && results.map((artist)=>{
         return(
-        <Card artistName = {artist.name}/>
+        <Card artistName = {artist.name} image={artist.images.length!=0 && artist.images[1].url} followers={artist.followers.total}/>
         )
       })}</ul>
     </div>
