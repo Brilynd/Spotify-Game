@@ -1,6 +1,7 @@
 import Navbar from "./Components/Navbar";
 import Card from "./Components/Card";
 import "./App.css";
+import BackgroundEffect from "./Components/BackgroundEffect";
 import { getTokenFromUrl } from "./Functions/spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState, useEffect } from "react";
@@ -10,6 +11,7 @@ const App = () => {
   const [session, setSession] = useCookies();
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([])
+
   //Gets the confirmation url and gets User ID from it and sets
   // spotifyToken to the UserID this will allow us to start using
   //the API on the users behalf
@@ -60,27 +62,13 @@ const App = () => {
   },[search])
   //NavbarSearch returns the searchbar input from the Navbar and passes up the value
   return (
-    
     <div>
-      <div class="area" >
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
+      <BackgroundEffect/>
       <Navbar Navbarsearch={(search) => setSearch(search)} />
       <p>{search}</p>
       <ul className="App-Search-Results">{results.length!=1 && results.map((artist)=>{
         return(
-        <Card displayName = {artist.name} image={artist.images.length!=0 && artist.images[1].url} followers={artist.followers.total} type={"Artist"} artistID={artist.id}/>
+        <Card displayName = {artist.name} image={artist.images.length!=0 && artist.images[1].url} followers={artist.followers.total} type={"Artist"} artistID={artist.id} route={"/Gamemode"}/>
         )
       })}</ul>
     </div>

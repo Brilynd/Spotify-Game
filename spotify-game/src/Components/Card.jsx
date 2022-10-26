@@ -1,11 +1,14 @@
 import "./Card.css"
-const Card = ({image,displayName,followers,artistID,type})=>{
+import { useNavigate } from "react-router"
+const Card = ({image,displayName,followers,artistID,type,route})=>{
+const navigate = useNavigate();
+
 return(
-    <li class={'flex-item'} onClick={()=>{console.log(artistID)}}>
+    <li class={'flex-item'} onClick={()=>{navigate(`${route}/${artistID}`)}}>
         <img id={type=="Gamemode"?"Gamemode":"Artist"} src={image}></img>
         <p>{displayName}</p>
         <p>{type}</p>
-        {followers!="" && <p>Followers: {followers}</p>}
+        {followers!=null && <p>Followers: {followers}</p>}
     </li>
 )
 }
