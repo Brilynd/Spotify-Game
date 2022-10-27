@@ -51,7 +51,6 @@ const Freeplay = () => {
             .reduce((map, obj) => map.set(obj.name, obj), new Map())
             .values(),
         ];
-
         //Sets the state of songs to the songArr
         setSongs(songArr);
       });
@@ -60,13 +59,13 @@ const Freeplay = () => {
 
   useEffect(()=>{
       getSongSelection(id)
-  })
+  },[])
 
   return (
     <div>
       
       <Navbar />
-      <Gamescreen songOne={songs[0]} songTwo={songs[1]}/>
+      {songs.length!=0 && <Gamescreen songOne={songs[0]} songTwo={songs[1]}/>}
     </div>
   );
 };
