@@ -12,6 +12,7 @@ const Freeplay = () => {
   const [songs, setSongs] = useState([]);
   var songArr = [];
 
+  
   //Gets all of the artists songs
   const getSongSelection = async (token) => {
     setSongs([]);
