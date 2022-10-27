@@ -1,0 +1,141 @@
+
+  #box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+  
+  #nav {
+    flex: 0 1 auto;
+    background-color: rgb(54, 54, 54);
+  }
+  #nav h1 {
+    font-family: sans-serif;
+    margin-left: 20px;
+  }
+  
+  #VScircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #VScircle p {
+    background-color: white;
+    padding: 16px;
+    border-radius: 50%;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  a {
+    color: #1ED760;
+    font-weight: 500;
+  }
+  
+  #songLinkOne {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  #songLinkTwo {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  #highScore {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  #score {
+    position: absolute;
+    top: 0px;
+    right: 70px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  main {
+    background-color: rgb(153, 153, 153);
+    flex: auto;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+  }
+  main .imageItem {
+    display: flex;
+    flex: 0 0 50%;
+    align-items: center;
+    justify-content: center;
+  }
+  main .imageItem .textContainer {
+    text-align: center;
+    color: white;
+    line-height: 34px;
+    padding: 15px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  main .imageItem .textContainer .songName {
+    font-size: min(max(28px, 4vw), 46px);
+    font-weight: 700;
+  }
+  main .imageItem .textContainer .songScore {
+    color: #1ED760;
+    font-weight: 700;
+    font-size: min(max(24px, 3.6vw), 40px);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  main .imageItem .textContainer button {
+    width: 199.8px;
+    border-radius: 50px;
+    background-color: #1E1E1E;
+    font-size: 18px;
+    color: white;
+    height: 51.3px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  main .imageItem .textContainer button:hover {
+    cursor: pointer;
+    transition: 200ms;
+    background-color: #272727;
+    color: #1ED760;
+  }
+  main .image1 {
+    background-color: rgb(206, 206, 206);
+    background-image: linear-gradient(rgba(30, 30, 30, 0.65), rgba(30, 30, 30, 0.65)), url(kanye2.jpg);
+    background-size: cover;
+  }
+  main .image2 {
+    background-color: rgb(130, 211, 76);
+    background-image: linear-gradient(rgba(30, 30, 30, 0.65), rgba(30, 30, 30, 0.65)), url(kanye1.jpeg);
+    background-size: cover;
+  }
+  
+  #btnHigher {
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+  
+  #btnLower {
+    margin-bottom: 16px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    main {
+      flex-flow: column;
+    }
+    main .imageItem .textContainer {
+      line-height: 27px;
+    }
+  }
