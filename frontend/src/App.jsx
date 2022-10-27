@@ -6,6 +6,7 @@ import { getTokenFromUrl } from "./Functions/spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { createUser } from "./Functions/postRequests";
 const App = () => {
   const spotify = new SpotifyWebApi();
   const [session, setSession] = useCookies();
@@ -50,6 +51,9 @@ const App = () => {
 
         //Gets users display name
         setSession("Username", user["display_name"]);
+
+        const userObject = {UserID:user["id"],Username:user["display_name"]}
+        createUser({...userObject})
       });
     }
   });

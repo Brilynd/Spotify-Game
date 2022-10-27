@@ -1,15 +1,16 @@
+//Searches for preexhisting user and if found it does not create a new user
 async function CreateUser (client,userInfo){
     try{
         console.log(userInfo)
         await client.connect();
-        await client.db('Spotify-Higher-Lower').collection('UserInfo').insertOne({Username:userInfo.Username,UserID:userInfo.UserID,Score:[]})
+        await client.db('Spotify-Higher-Lower').collection('UserInfo').updateOne({UserID:userInfo.UserID},{$set:{Username:userInfo.Username,UserID:userInfo.UserID,Score:[]}},{upsert:true})
 
     }
     catch(e){
         console.error(e)
     }
 }
-//Takes in ArtistName,ArtistID,Score,UserID
+//Adds current games final score to the Users score array to allow for the ability to see previous game data
 
 async function AddUserScore(client,userInfo){
     try{
@@ -20,12 +21,15 @@ async function AddUserScore(client,userInfo){
         console.error(e)
     }
 }
+
+//Returns the users current scoreboard of previous game data
+
 async function GetUserScoreboard(client,userInfo){
     try{
         await client.connect()
         const response = await client.db('Spotify-Higher-Lower').collection('UserInfo').findOne({UserID:userInfo.UserID})
-        console.log(response)
-        return response
+        console.log(response.Score)
+        return response.Score
 
     }
     catch(e){
