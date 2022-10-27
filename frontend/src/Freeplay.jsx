@@ -1,4 +1,5 @@
 import Navbar from "./Components/Navbar";
+import Gamescreen from "./Components/Gamescreen";
 import "./Freeplay.css";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState } from "react";
@@ -59,7 +60,9 @@ const Freeplay = () => {
 
   return (
     <div>
+      
       <Navbar />
+      <Gamescreen />
       <button
         onClick={() => {
           getSongSelection(session.session);
