@@ -2,7 +2,7 @@ import Navbar from "./Components/Navbar";
 import Gamescreen from "./Components/Gamescreen";
 import "./Freeplay.css";
 import SpotifyWebApi from "spotify-web-api-js";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Navigate, useParams } from "react-router";
 import { useCookies } from "react-cookie";
 
@@ -58,23 +58,15 @@ const Freeplay = () => {
     });
   };
 
+  useEffect(()=>{
+      getSongSelection(id)
+  })
+
   return (
     <div>
       
       <Navbar />
       <Gamescreen />
-      <button
-        onClick={() => {
-          getSongSelection(session.session);
-        }}
-      ></button>
-      <button
-        onClick={() => {
-          console.log(songs);
-        }}
-      >
-        ConsoleLogger
-      </button>
     </div>
   );
 };
