@@ -2,6 +2,8 @@ import axios from "axios";
 import { Route } from "react-router";
 
 const URL = "http://localhost:5000/"
+
+//Sends post request to backend to create new user
 export const createUser= async function(userObj){
     const Route = "user/create"
     axios
