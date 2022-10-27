@@ -66,7 +66,7 @@ const Freeplay = () => {
     <div>
       
       <Navbar />
-      <Gamescreen />
+      <Gamescreen songOne={songs[0]} songTwo={songs[1]}/>
     </div>
   );
 };
