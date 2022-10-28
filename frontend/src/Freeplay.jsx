@@ -59,7 +59,7 @@ const Freeplay = () => {
   },[])
 
   return (
-    <div style={{height:'100vh',display:'flex','flex-flow':'column'}}>
+    <div style={{height:'100vh',display:'flex',flexFlow:'column'}}>
       <Navbar />
       {songs.length!=0 && <Gamescreen songOne={songs[randomNum(songs.length)]} songTwo={songs[randomNum(songs.length)]}/>}
     </div>
