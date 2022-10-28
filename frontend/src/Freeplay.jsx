@@ -5,6 +5,8 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { useState,useEffect } from "react";
 import { Navigate, useParams } from "react-router";
 import { useCookies } from "react-cookie";
+import { randomNum } from "./Functions/randomNum";
+import BackgroundEffect from "./Components/BackgroundEffect";
 
 const Freeplay = () => {
   const { id } = useParams();
@@ -12,60 +14,54 @@ const Freeplay = () => {
   const [session, setSession] = useCookies();
   const [songs, setSongs] = useState([]);
   var songArr = [];
+   const getSongSelection = async (token) =>{
+       spotify.getAccessToken(token);
+       var getAlbumList = await spotify.getArtistAlbums(id);
+       var albumList = []
+       var songList = []
+       var songDetails = []
 
-  
-  //Gets all of the artists songs
-  const getSongSelection = async (token) => {
-    setSongs([]);
+       const getAlbumTracks = getAlbumList.items.map(async(track)=>{
+           var AlbumTracks = spotify.getAlbumTracks(track.id)
+           albumList.push(await AlbumTracks)
+       })
+       await Promise.all(getAlbumTracks)
+      const getSongList = albumList.map((song)=>{
+           song.items.map(songID=>{
+               songDetails.push(songID.id)
+           })
+       })
+       await Promise.all(getSongList)
+       const createSongObj = songDetails.map(async(songID)=>{
+            var SongData = spotify.getTrack(songID)
+            var images
+            if((await SongData).album.images.length!=0){
+                images = (await SongData).album.images[0].url
+            }
+            else{
+                images = null
+            }
+            console.log(await SongData)
+            songArr.push({
+                          name: (await SongData).name,
+                          popularity: (await SongData).popularity,
+                          image: images,
+                        })
+       })
+       await Promise.all(createSongObj)
+       setSongs(songArr)
 
-    //Sets spotify access token
-    spotify.setAccessToken(token);
-
-    //Gets an array of albums from Artist Id in the URL
-    var response = await spotify.getArtistAlbums(id);
-
-    //Gets list of songs from each album
-    response.items.map(async (Album) => {
-      response = await spotify.getAlbumTracks(Album.id);
-
-      //Gets more details on the song like popularity and album cover
-      response.items.map(async (song) => {
-        response = await spotify.getTrack(song.id);
-
-        //Sets the image of the song to the album cover if the song has one
-        var images = null;
-        if (response.album.images.length != 0) {
-          images = response.album.images[0].url;
-        }
-
-        //Adds song info to the songArr
-        songArr.push({
-          name: response.name,
-          popularity: response.popularity,
-          image: images,
-        });
-
-        //Removes duplicate songs to avoid redundancy
-        songArr = [
-          ...songArr
-            .reduce((map, obj) => map.set(obj.name, obj), new Map())
-            .values(),
-        ];
-        //Sets the state of songs to the songArr
-        setSongs(songArr);
-      });
-    });
-  };
+    }
 
   useEffect(()=>{
-      getSongSelection(id)
+      
+      getSongSelection(session.session)
   },[])
 
   return (
-    <div>
-      
+    <div style={{width:'100vw',height:'100vh'}}>
       <Navbar />
-      {songs.length!=0 && <Gamescreen songOne={songs[0]} songTwo={songs[1]}/>}
+      {songs.length!=0 && <Gamescreen songOne={songs[randomNum(songs.length)]} songTwo={songs[randomNum(songs.length)]}/>}
     </div>
   );
 };

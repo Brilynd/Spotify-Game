@@ -64,10 +64,10 @@
   }
   
   main {
+    height: 100%;
     background-color: rgb(153, 153, 153);
-    flex: auto;
-    display: flex;
-    flex-flow: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
   }
   main .imageItem {
@@ -112,12 +112,13 @@
     color: #1ED760;
   }
   main .image1 {
+    
     background-color: rgb(206, 206, 206);
-    background-size: cover;
+    background-size: auto;
   }
   main .image2 {
     background-color: rgb(130, 211, 76);
-    background-size: cover;
+    background-size: auto;
   }
   
   #btnHigher {
