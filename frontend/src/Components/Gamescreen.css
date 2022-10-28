@@ -66,13 +66,20 @@
   main {
     height: 100%;
     background-color: rgb(153, 153, 153);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    flex: auto;
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
   }
   main .imageItem {
     display: flex;
-    flex: 0 0 50%;
+    /* flex: 0 0 50%; */
+    flex-grow:1;
+    flex-basis:0;
+    min-width: 230px;
+    min-height: 50%;
     align-items: center;
     justify-content: center;
   }
@@ -128,13 +135,4 @@
   
   #btnLower {
     margin-bottom: 16px;
-  }
-  
-  @media screen and (max-width: 500px) {
-    main {
-      flex-flow: column;
-    }
-    main .imageItem .textContainer {
-      line-height: 27px;
-    }
   }
