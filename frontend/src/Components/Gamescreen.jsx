@@ -39,11 +39,16 @@ if(isOver==true){
 return(
     
         <main>
-            {isOver==true && <div style={{position:'absolute', height:"100vh",width:'100vw', backgroundColor:"black",zIndex:"10"}}>
-                <h1 style={{color:"white",textAlign:"center"}}>Final Score is {score}</h1>
-                <button>Play Again</button>
-                <button>Home</button>
-                </div>}
+            {isOver==true && 
+                <div id="isOver">
+                    <div>
+                        <h1>You Scored:</h1>
+                        <h2>{score}</h2>
+                        <button>Play Again</button>
+                        <button>Home</button>
+                    </div>
+                </div>
+            }
             <div class="imageItem image1" style={{backgroundImage: `linear-gradient(rgba(30, 30, 30, 0.65), rgba(30, 30, 30, 0.65)), url(${props.songOne.image!=""?props.songOne.image:""})`}}>
                 <p class="textContainer"><span class="songName">{props.songOne.name}</span><br/>has<br/><span class="songScore">{props.songOne.popularity}/100</span><br/>Popularity</p>
             </div>
