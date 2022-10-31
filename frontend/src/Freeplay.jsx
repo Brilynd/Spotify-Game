@@ -13,6 +13,8 @@ const Freeplay = () => {
   const spotify = new SpotifyWebApi();
   const [session, setSession] = useCookies();
   const [songs, setSongs] = useState([]);
+  const [songOne,setSongOne] = useState(randomNum(songs.length))
+  const [songTwo,setSongTwo] = useState()
   var songArr = [];
    const getSongSelection = async (token) =>{
        spotify.getAccessToken(token);
@@ -50,6 +52,8 @@ const Freeplay = () => {
        })
        await Promise.all(createSongObj)
        setSongs(songArr)
+       setSongTwo(randomNum(songArr.length))
+       setSongOne(randomNum(songArr.length))
 
     }
 
@@ -58,10 +62,15 @@ const Freeplay = () => {
       getSongSelection(session.session)
   },[])
 
+  const getNewSongs = () =>{
+    setSongOne(randomNum(songs.length))
+    setSongTwo(randomNum(songs.length))
+  }
+
   return (
     <div style={{height:'100vh',display:'flex',flexFlow:'column'}}>
       <Navbar />
-      {songs.length!=0 && <Gamescreen songOne={songs[randomNum(songs.length)]} songTwo={songs[randomNum(songs.length)]}/>}
+      {songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs}/>}
     </div>
   );
 };

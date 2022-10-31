@@ -12,6 +12,7 @@ return(
         <Navbar/>
         <ul className="App-Search-Results">
             <Card displayName={"Freeplay"} type={'Gamemode'} artistID={id} route={`/Freeplay`}/>
+
  </ul>
     </div>
 )
