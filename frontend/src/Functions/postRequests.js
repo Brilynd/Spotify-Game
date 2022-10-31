@@ -13,3 +13,13 @@ export const createUser= async function(userObj){
       console.log(res.data);
     });
 }
+
+export const addUserScore= async function(userObj){
+  const Route = "user/update"
+  axios
+  .post(`${URL+Route}`, userObj)
+  .then((res) => {
+    console.log(res);
+    console.log(res.data);
+  });
+}

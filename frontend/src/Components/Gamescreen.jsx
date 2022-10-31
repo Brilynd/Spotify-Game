@@ -1,6 +1,7 @@
 import "./Gamescreen.css"
 import { useNavigate } from "react-router"
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { addUserScore } from "../Functions/postRequests"
 const Gamescreen = (props)=>{
     console.log(props)
 const navigate = useNavigate();
@@ -24,6 +25,17 @@ const isLowerThan = () =>{
         setIsOver(true)
     }
 }
+const updateScore = ()=>{
+    const userObj = {UserID:props.userId, ArtistName : props.artistName, ArtistID:props.artistID,Score:score}
+    addUserScore({...userObj})
+    console.log(userObj)
+    // await client.db('Spotify-Higher-Lower').collection('UserInfo').updateOne({UserID:userInfo.UserID},{$push:{Score:{Artist:userInfo.ArtistName,ArtistID:userInfo.ArtistID,Score:userInfo.Score}}})
+}
+useEffect(()=>{
+if(isOver==true){
+    updateScore()
+}
+},[isOver])
 return(
     
         <main>

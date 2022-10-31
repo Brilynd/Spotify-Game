@@ -15,9 +15,16 @@ const Freeplay = () => {
   const [songs, setSongs] = useState([]);
   const [songOne,setSongOne] = useState(randomNum(songs.length))
   const [songTwo,setSongTwo] = useState()
+  const [userID,setUserID] = useState("")
+  var artistName = ""
   var songArr = [];
    const getSongSelection = async (token) =>{
        spotify.getAccessToken(token);
+       await spotify.getMe().then((user) => {
+        console.log(user)
+        setUserID(user.id)
+        
+      });
        var getAlbumList = await spotify.getArtistAlbums(id);
        var albumList = []
        var songList = []
@@ -25,6 +32,7 @@ const Freeplay = () => {
 
        const getAlbumTracks = getAlbumList.items.map(async(track)=>{
            var AlbumTracks = spotify.getAlbumTracks(track.id)
+           
            albumList.push(await AlbumTracks)
        })
        await Promise.all(getAlbumTracks)
@@ -43,7 +51,6 @@ const Freeplay = () => {
             else{
                 images = null
             }
-            console.log(await SongData)
             songArr.push({
                           name: (await SongData).name,
                           popularity: (await SongData).popularity,
@@ -62,6 +69,8 @@ const Freeplay = () => {
       getSongSelection(session.session)
   },[])
 
+
+
   const getNewSongs = () =>{
     setSongOne(randomNum(songs.length))
     setSongTwo(randomNum(songs.length))
@@ -70,7 +79,7 @@ const Freeplay = () => {
   return (
     <div style={{height:'100vh',display:'flex',flexFlow:'column'}}>
       <Navbar />
-      {songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs}/>}
+      {songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs} artistID ={id} artistName = {id} userId = {userID} userName = {session.Username}/>}
     </div>
   );
 };
