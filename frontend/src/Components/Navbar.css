@@ -30,6 +30,7 @@
     width:max-content;
     align-self: center;
     transition: all 250ms ease-in-out;
+    cursor: pointer;
 }
 .Left-Navbar li:hover{
     transform: scale(1.1);
@@ -38,7 +39,9 @@
 .Right-Navbar{
     display: flex;
     margin: 0;
-    padding: 0;
+    width: 40%;
+    padding: 10px;
+    justify-content: right;
 }
 
 .Navbar-Searchbar{
@@ -75,8 +78,25 @@ width: 110px;
 margin-left: 15px;
 border-radius: 60px;
 align-self: center;
+cursor: pointer;
 }
 #navbar-signup:hover{
+    transform: scale(1.05);
+}
+
+#navbar-logout{
+    font-size: 16px;
+    color: black;
+    background: white;
+    border:1px solid transparent;
+    height: 45px;
+    width: 110px;
+    border-radius: 60px;
+    align-self: center;
+    margin-left: 15px;
+    cursor: pointer;
+}
+#navbar-logout:hover{
     transform: scale(1.05);
 }
 
