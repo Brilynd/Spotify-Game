@@ -35,8 +35,8 @@ const updateScore = ()=>{
     const userObj = {UserID:props.userId, ArtistName : props.artistName, ArtistID:props.artistID,Score:score}
     addUserScore({...userObj})
     console.log(userObj)
-    // await client.db('Spotify-Higher-Lower').collection('UserInfo').updateOne({UserID:userInfo.UserID},{$push:{Score:{Artist:userInfo.ArtistName,ArtistID:userInfo.ArtistID,Score:userInfo.Score}}})
 }
+
 useEffect(()=>{
 if(isOver==true){
     updateScore()
