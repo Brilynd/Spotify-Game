@@ -64,7 +64,6 @@ return(
                     <button id="btnHigher" onClick={()=>isHigherThan()}>Higher</button><br/><button id="btnLower" onClick={()=>isLowerThan()}>Lower</button>
                 <br/>Popularity</p>
             </div>
-            <button onClick={props.updateSongs}>Update</button>
         </main>
     )
 }
