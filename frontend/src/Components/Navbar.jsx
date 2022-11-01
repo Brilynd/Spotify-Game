@@ -27,8 +27,8 @@ return(
   debounceTimeout={500} type="text" placeholder="Search Artist" onChange={(e)=>props.Navbarsearch(e.target.value)} className="Navbar-Searchbar"/>
    
         <ul className="Left-Navbar">
-            <li>Home</li>
-            <li>My Scores</li>
+            <li onClick={()=>{navigate('/')}}>Home</li>
+            <li onClick={()=>{navigate('/ScoreHistory')}}>My Scores</li>
             <li>Leaderboard</li>
         </ul>
 

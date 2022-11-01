@@ -3,7 +3,7 @@ import App from "./App";
 // import Profile from "./Profile";
 import Gamemode from "./Gamemode";
 import Freeplay from "./Freeplay";
-import LeaderboardScreen from "./LeaderboardScreen";
+import LeaderboardScreen from "./MyScores";
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
@@ -11,7 +11,7 @@ const RouteSwitch = () => {
         <Route path="/" element={<App />} />
         <Route path="/Gamemode/:id" element={<Gamemode/>}/>
         <Route path="/Freeplay/:id" element={<Freeplay/>}/>
-        <Route path = "/Leaderboard" element={<LeaderboardScreen/>}/>
+        <Route path = "/ScoreHistory" element={<LeaderboardScreen/>}/>
       </Routes>
     </BrowserRouter>
   );
