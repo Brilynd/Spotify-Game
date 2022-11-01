@@ -46,7 +46,7 @@ const Freeplay = () => {
             var SongData = spotify.getTrack(songID)
             var images
             if((await SongData).album.images.length!=0){
-                images = (await SongData).album.images[0].url
+                images = (await SongData).album.images[2].url
             }
             else{
                 images = null

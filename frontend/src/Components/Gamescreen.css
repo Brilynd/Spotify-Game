@@ -121,11 +121,11 @@
   main .image1 {
     
     background-color: rgb(206, 206, 206);
-    background-size: auto;
+    background-size: cover;
   }
   main .image2 {
     background-color: rgb(130, 211, 76);
-    background-size: auto;
+    background-size: cover;
   }
   
   #btnHigher {

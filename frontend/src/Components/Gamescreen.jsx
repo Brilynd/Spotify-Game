@@ -7,6 +7,12 @@ const Gamescreen = (props)=>{
 const navigate = useNavigate();
 const [score,setScore] = useState(0)
 const [isOver,setIsOver] = useState(false)
+
+const setGameRestart = () =>{
+    setIsOver(false)
+    setScore(0)
+    props.updateSongs()
+}
 const isHigherThan = () =>{
     if (props.songOne.popularity<=props.songTwo.popularity){
         props.updateSongs()
@@ -29,8 +35,8 @@ const updateScore = ()=>{
     const userObj = {UserID:props.userId, ArtistName : props.artistName, ArtistID:props.artistID,Score:score}
     addUserScore({...userObj})
     console.log(userObj)
-    // await client.db('Spotify-Higher-Lower').collection('UserInfo').updateOne({UserID:userInfo.UserID},{$push:{Score:{Artist:userInfo.ArtistName,ArtistID:userInfo.ArtistID,Score:userInfo.Score}}})
 }
+
 useEffect(()=>{
 if(isOver==true){
     updateScore()
@@ -44,8 +50,8 @@ return(
                     <div>
                         <h1>You Scored:</h1>
                         <h2>{score}</h2>
-                        <button>Play Again</button>
-                        <button>Home</button>
+                        <button onClick={()=>{setGameRestart()}}>Play Again</button>
+                        <button onClick={()=>{navigate('/')}}>Home</button>
                     </div>
                 </div>
             }
@@ -64,7 +70,6 @@ return(
                     <button id="btnHigher" onClick={()=>isHigherThan()}>Higher</button><br/><button id="btnLower" onClick={()=>isLowerThan()}>Lower</button>
                 <br/>Popularity</p>
             </div>
-            <button onClick={props.updateSongs}>Update</button>
         </main>
     )
 }
