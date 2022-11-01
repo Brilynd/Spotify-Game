@@ -37,7 +37,7 @@ return(
             <button id="navbar-signup">Sign Up</button>
         </ul>}
        {cookies.session!=undefined && <ul className="Right-Navbar">
-            <p id="navbar-username">{cookies.Username}</p><button id="navbar-logout" onClick={()=>Signout()}>Log Out</button>
+            <img id="navbar-icon" src={props.image} alt="" /><p id="navbar-username">{cookies.Username}</p><button id="navbar-logout" onClick={()=>Signout()}>Log Out</button>
         </ul>}
         </div>
     </div>

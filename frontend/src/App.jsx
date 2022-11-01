@@ -12,6 +12,7 @@ const App = () => {
   const [session, setSession] = useCookies();
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([])
+  const [image,setImage] = useState('')
 
   //Gets the confirmation url and gets User ID from it and sets
   // spotifyToken to the UserID this will allow us to start using
@@ -47,7 +48,8 @@ const App = () => {
 
       //Sets users Username
       spotify.getMe().then((user) => {
-        console.log("User", user);
+        console.log(user);
+        setImage(user.images[0].url)
 
         //Gets users display name
         setSession("Username", user["display_name"]);
@@ -68,7 +70,7 @@ const App = () => {
   return (
     <div>
       <BackgroundEffect/>
-      <Navbar Navbarsearch={(search) => setSearch(search)} />
+      <Navbar Navbarsearch={(search) => setSearch(search)} image ={image}/>
       <ul className="App-Search-Results">{results.length!=1 && results.map((artist)=>{
         return(
         <Card displayName = {artist.name} image={artist.images.length!=0 && artist.images[1].url} followers={artist.followers.total} type={"Artist"} artistID={artist.id} route={"/Gamemode"}/>
