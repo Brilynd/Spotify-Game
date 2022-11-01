@@ -90,11 +90,11 @@ return(
             let nav = document.getElementById("topnav");
             if (links.style.display === "flex") {
                 links.style.display = "none";
-                nav.style.height = "auto";
+                nav.style.position = "relative";
                 document.getElementById("nav-icon").classList.remove("open");
             } else {
                 document.getElementById("nav-icon").classList.add("open");
-                nav.style.height = "100vh";
+                nav.style.position = "absolute";
                 links.style.display = "flex";
             }}}>
             <span></span>
@@ -108,11 +108,11 @@ return(
     let nav = document.getElementById("topnav");
     if (links.style.display === "flex") {
         links.style.display = "none";
-        nav.style.height = "auto";
+        nav.style.position = "relative";
         document.getElementById("nav-icon").classList.remove("open");
     } else {
         document.getElementById("nav-icon").classList.add("open");
-        nav.style.height = "100vh";
+        nav.style.position = "absolute";
         links.style.display = "flex";
     }}}/>
     </div>

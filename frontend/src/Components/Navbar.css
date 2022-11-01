@@ -119,9 +119,11 @@ cursor: pointer;
     overflow: auto;
     background-color: black;
     position: relative;
-    height: auto;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-flow: column;
+    top: 0;
   }
   
   #mobile-top {
