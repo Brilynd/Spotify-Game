@@ -23,3 +23,15 @@ export const addUserScore= async function(userObj){
     console.log(res.data);
   });
 }
+
+export const getUserScores= async function(userObj){
+  const Route = "user/scores"
+  var rtnResponse;
+  const Response = axios
+  .post(`${URL+Route}`, userObj)
+  .then((res) => {
+    rtnResponse = res.data
+  });
+await Promise.all(Response)
+ return await rtnResponse
+}
