@@ -110,10 +110,6 @@ return(
         links.style.display = "none";
         nav.style.position = "relative";
         document.getElementById("nav-icon").classList.remove("open");
-    } else {
-        document.getElementById("nav-icon").classList.add("open");
-        nav.style.position = "absolute";
-        links.style.display = "flex";
     }}}/>
     </div>
     
