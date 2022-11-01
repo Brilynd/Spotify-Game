@@ -112,3 +112,165 @@ cursor: pointer;
     vertical-align: middle;
     align-self: center;
 }
+
+/* Mobile Nav CSS */
+
+#topnav {
+    overflow: auto;
+    background-color: black;
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+  }
+  
+  #mobile-top {
+    display: flex;
+    margin: 10px;
+    margin-top: 54px;
+  }
+  #mobile-top .Mobile-Searchbar {
+    align-self: center;
+    width: 100%;
+    margin-left: 13px;
+    box-sizing: border-box;
+    padding: 14px;
+    padding-left: 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+  }
+  
+  #topnav #mobile-links {
+    display: none;
+    flex-flow: column;
+  }
+  #topnav #mobile-links .mobile-link {
+    display: flex;
+    flex-flow: row;
+    color: white;
+    padding: 18px 35px;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #545454;
+    justify-content: space-between;
+  }
+  #topnav #mobile-links .mobile-link i {
+    border: solid grey;
+    border-width: 0 2px 2px 0;
+    display: inline-flex;
+    padding: 4px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    align-self: center;
+  }
+  #topnav #mobile-links .mobile-link:hover {
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+  }
+  #topnav #mobile-links .mobile-link:last-of-type {
+    margin-bottom: 30px;
+  }
+  #topnav #mobile-links button {
+    font-size: 16px;
+    border: 1px solid transparent;
+    height: 54px;
+    width: 176px;
+    margin-left: 15px;
+    border-radius: 60px;
+    align-self: center;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #topnav #mobile-links #mobile-signInBtn {
+    color: white;
+    background-color: transparent;
+    margin-bottom: 10px;
+  }
+  #topnav #mobile-links #mobile-signUpBtn {
+    color: black;
+    background: white;
+    margin-bottom: 20px;
+  }
+  
+  .active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  #nav-icon {
+    align-self: center;
+    width: 36px;
+    height: 27px;
+    margin-left: 5px;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+  }
+  
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  
+  /* https://codepen.io/designcouch/pen/ExvwPY */
+  #nav-icon span:nth-child(1) {
+    top: 0px;
+  }
+  
+  #nav-icon span:nth-child(2), #nav-icon span:nth-child(3) {
+    top: 12px;
+  }
+  
+  #nav-icon span:nth-child(4) {
+    top: 24px;
+  }
+  
+  #nav-icon.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+  
+  #nav-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
+  
+  #nav-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+  }
+  
+  #nav-icon.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
