@@ -7,6 +7,7 @@ const Gamescreen = (props)=>{
 const navigate = useNavigate();
 const [score,setScore] = useState(0)
 const [isOver,setIsOver] = useState(false)
+
 const setGameRestart = () =>{
     setIsOver(false)
     setScore(0)
