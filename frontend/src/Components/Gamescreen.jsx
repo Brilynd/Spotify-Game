@@ -7,6 +7,11 @@ const Gamescreen = (props)=>{
 const navigate = useNavigate();
 const [score,setScore] = useState(0)
 const [isOver,setIsOver] = useState(false)
+const setGameRestart = () =>{
+    setIsOver(false)
+    setScore(0)
+    props.updateSongs()
+}
 const isHigherThan = () =>{
     if (props.songOne.popularity<=props.songTwo.popularity){
         props.updateSongs()
@@ -44,8 +49,8 @@ return(
                     <div>
                         <h1>You Scored:</h1>
                         <h2>{score}</h2>
-                        <button>Play Again</button>
-                        <button>Home</button>
+                        <button onClick={()=>{setGameRestart()}}>Play Again</button>
+                        <button onClick={()=>{navigate('/')}}>Home</button>
                     </div>
                 </div>
             }
