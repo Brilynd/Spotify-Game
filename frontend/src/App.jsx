@@ -53,7 +53,7 @@ const App = () => {
 
         //Gets users display name
         setSession("Username", user["display_name"]);
-
+        setSession('UserID',user['id'])
         const userObject = {UserID:user["id"],Username:user["display_name"]}
         createUser({...userObject})
       });
