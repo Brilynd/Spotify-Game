@@ -79,7 +79,7 @@ return(
         </ul>}
        {cookies.session!=undefined && <ul className="Right-Navbar">
             <div className="profileContainer">
-                <div id="navbar-icon" style={{background: `url('${props.image}') 50% 50% no-repeat`}}></div><p id="navbar-username">{cookies.Username}</p><button id="navbar-logout" onClick={()=>Signout()}>Log Out</button>
+                <div id="navbar-icon" style={{background: `url('${cookies.UserProfile}') 50% 50% no-repeat`}}></div><p id="navbar-username">{cookies.Username}</p><button id="navbar-logout" onClick={()=>Signout()}>Log Out</button>
             </div>
         </ul>}
         </div>

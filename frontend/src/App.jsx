@@ -48,9 +48,7 @@ const App = () => {
 
       //Sets users Username
       spotify.getMe().then((user) => {
-        console.log(user);
-        setImage(user.images[0].url)
-
+        setSession("UserProfile",user.images[0].url)
         //Gets users display name
         setSession("Username", user["display_name"]);
         setSession('UserID',user['id'])

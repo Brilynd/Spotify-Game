@@ -2,39 +2,55 @@ import "./Gamescreen.css"
 import { useNavigate } from "react-router"
 import { useState,useEffect } from "react"
 import { addUserScore } from "../Functions/postRequests"
+import AnimatedNumber from "react-animated-number"
 const Gamescreen = (props)=>{
-    console.log(props)
 const navigate = useNavigate();
 const [score,setScore] = useState(0)
 const [isOver,setIsOver] = useState(false)
+const [isRevealed,setIsRevealed] = useState(false)
+const [songPopularity,setSongPopularity] = useState(10000)
+const delay = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
 
 const setGameRestart = () =>{
     setIsOver(false)
     setScore(0)
     props.updateSongs()
 }
-const isHigherThan = () =>{
+const isHigherThan = async() =>{
+    setIsRevealed(true)
+    await delay(3000)
     if (props.songOne.popularity<=props.songTwo.popularity){
-        props.updateSongs()
-        setScore(score+1)
+        await delay(400)
+        setIsRevealed(false)
+       await props.updateSongs()
+       await delay(400)
+       await setScore(score+1)
     }
     else{
-        setIsOver(true)
+        await delay(400)
+       await setIsOver(true)
     }
 }
-const isLowerThan = () =>{
+const isLowerThan = async() =>{
+
+    setIsRevealed(true)
     if(props.songOne.popularity>=props.songTwo.popularity){
-        props.updateSongs()
-        setScore(score+1)
+        await delay(400)
+        setIsRevealed(false)
+        await props.updateSongs()
+        await delay(400)
+        await setScore(score+1)
     }
     else{
-        setIsOver(true)
+        await delay(400)
+       await setIsOver(true)
     }
 }
 const updateScore = ()=>{
     const userObj = {UserID:props.userId, ArtistName : props.artistName, ArtistID:props.artistID,Score:score}
     addUserScore({...userObj})
-    console.log(userObj)
 }
 
 useEffect(()=>{
@@ -42,6 +58,11 @@ if(isOver==true){
     updateScore()
 }
 },[isOver])
+
+useEffect(()=>{
+    setSongPopularity(props.songTwo.popularity)
+    console.log(props.songTwo.popularity)
+    },[props.songTwo.popularity])
 return(
     
         <main>
@@ -58,15 +79,17 @@ return(
             <div class="imageItem image1" style={{backgroundImage: `linear-gradient(rgba(30, 30, 30, 0.65), rgba(30, 30, 30, 0.65)), url(${props.songOne.image!=""?props.songOne.image:""})`}}>
                 <p class="textContainer"><span class="songName">{props.songOne.name}</span><br/>has<br/><span class="songScore">{props.songOne.popularity}/100</span><br/>Popularity</p>
             </div>
-            <p id="highScore">High Score: </p>
             <p id="score">Score: {score} </p>
-            <a id="songLinkOne" href="">link to song</a>
-            <a id="songLinkTwo" href="">link to song</a>
             <div id="VScircle">
                 <p>VS</p>
             </div>
             <div class="imageItem image2" style={{backgroundImage: `linear-gradient(rgba(30, 30, 30, 0.65), rgba(30, 30, 30, 0.65)), url(${props.songTwo.image!=""?props.songTwo.image:""})`}}>
-                <p class="textContainer"><span class="songName">{props.songTwo.name}</span><br/>has<br/><span class="songScore">{props.songTwo.popularity}/100</span><br/>
+                <p class="textContainer"><span class="songName">{props.songTwo.name}</span><br/>has<br/><span class="songScore">{isRevealed &&   <AnimatedNumber value={parseInt(songPopularity)}
+            frameStyle={perc => (
+                perc === 100 ? {} : {backgroundColor: '#ffeb3b'}
+            )}
+            duration={300}
+            />/100}</span><br/>
                     <button id="btnHigher" onClick={()=>isHigherThan()}>Higher</button><br/><button id="btnLower" onClick={()=>isLowerThan()}>Lower</button>
                 <br/>Popularity</p>
             </div>
