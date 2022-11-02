@@ -1,8 +1,10 @@
  
   .flex-item {
     background: #181818;
-    width: 216px;
-    height: 294px;
+    /* aspect-ratio: 36 / 49; */
+    max-width: 216px;
+    /* max-height: 294px; */
+    width: 44%;
     margin-top: 10px;
     color: white;
     font-weight: bold;
@@ -16,8 +18,10 @@
   .flex-item img {
 
     border: 0;
-    width: 184px;
-    height: 184px;
+    aspect-ratio: 1/1;
+    /* max-width: 184px; */
+    width: calc(100% - 32px);
+    /* height: 184px; */
     background-color: white;
     margin: 0;
     padding: 0;
@@ -48,6 +52,7 @@
     color: #1ed760;
     font-weight: 400;
     font-size: 13px;
+    margin-bottom: 16px;
   }
   
   .flex-item:hover {
