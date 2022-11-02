@@ -1,10 +1,9 @@
  
   .flex-item {
     background: #181818;
-    /* aspect-ratio: 36 / 49; */
+    aspect-ratio: 36 / 49;
     max-width: 216px;
-    /* max-height: 294px; */
-    width: 44%;
+    width: 38%;
     margin-top: 10px;
     color: white;
     font-weight: bold;
@@ -13,20 +12,20 @@
     border-radius: 7px;
     text-align: left;
     transition: 0.3s;
+    display: flex;
+    flex-flow: column;
+    padding: 12px;
   }
 
   .flex-item img {
 
     border: 0;
     aspect-ratio: 1/1;
-    /* max-width: 184px; */
-    width: calc(100% - 32px);
-    /* height: 184px; */
+    width: 100%;
     background-color: white;
     margin: 0;
     padding: 0;
-    margin-left: 16px;
-    margin-top: 16px;
+    margin-bottom: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
   #Gamemode{
@@ -36,12 +35,14 @@
     border-radius: 7px;
   }
   .flex-item p {
+    white-space: nowrap;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     font-size: 16px;
     font-family: sans-serif;
-    margin-left: 16px;
     line-height: 24px;
+    
   }
   .flex-item p:nth-child(3) {
     font-size: 15px;
@@ -52,7 +53,6 @@
     color: #1ed760;
     font-weight: 400;
     font-size: 13px;
-    margin-bottom: 16px;
   }
   
   .flex-item:hover {
