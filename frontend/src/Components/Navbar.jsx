@@ -86,7 +86,7 @@ return(
                     menu.classList.remove("dropdownAnimated");
                     setTimeout(function () {
                         menu.style.display = "none";
-                      }, 200);
+                      }, 150);
                     if(arrow !== null){
                         arrow.style.transform = "rotate(0deg)";
                     }
