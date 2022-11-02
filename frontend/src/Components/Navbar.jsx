@@ -106,7 +106,7 @@ return(
             }}>
                 <div id="navbar-icon" style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div>
                 {windowSize.innerWidth > 850 && <div>
-                    <p id="navbar-username">{cookies.Username.slice(0,10)}</p><span id="arrow"></span>
+                    <p id="navbar-username">{cookies.Username}</p><span id="arrow"></span>
                     </div>
                 }
                 <div id="logOutDropdown"><button onClick={()=>Signout()}>Log out</button></div>
