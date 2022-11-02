@@ -33,7 +33,7 @@
     padding: 0;
 }
 .Left-Navbar li{
-    font-weight: 300;
+    font-weight: bold;
     font-size: 16px;
     list-style: none;
     margin-left: 30px;
@@ -142,9 +142,11 @@ border:1px solid transparent;
 color: #b3b3b3;
 font-size: 16px;
 text-decoration: none;
+font-weight: bold;
 }
 #navbar-signin:hover{
     color: white;
+    transform: scale(1.1);
 }
 #navbar-signup{
 font-size: 16px;
@@ -157,6 +159,7 @@ margin-left: 15px;
 border-radius: 60px;
 align-self: center;
 cursor: pointer;
+font-weight: bold;
 }
 #navbar-signup:hover{
     transform: scale(1.05);
