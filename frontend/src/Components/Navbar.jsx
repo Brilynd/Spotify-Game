@@ -109,7 +109,7 @@ return(
                     <p id="navbar-username">{cookies.Username.slice(0,10)}</p><span id="arrow"></span>
                     </div>
                 }
-                <div id="logOutDropdown" ><button onClick={()=>Signout()}>Log out</button></div>
+                <div id="logOutDropdown"><button onClick={()=>Signout()}>Log out</button></div>
             </div>
         </ul>}
         </div>
