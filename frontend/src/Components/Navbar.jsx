@@ -77,9 +77,31 @@ return(
             <a id="navbar-signin" href={loginUrl}> Sign In</a>
             <button id="navbar-signup">Sign Up</button>
         </ul>}
-       {cookies.session!=undefined && <ul className="Right-Navbar">
-            <div className="profileContainer">
-                <div id="navbar-icon" style={{background: `url('${props.image}') 50% 50% no-repeat`}}></div><p id="navbar-username">{cookies.Username}</p><button id="navbar-logout" onClick={()=>Signout()}>Log Out</button>
+       {cookies.session!=undefined && <ul id="profileContainer">
+            <div id="userDropdown" onClick={()=>{
+                let menu = document.getElementById("logOutDropdown");
+                let arrow = document.getElementById("arrow");
+                let dropdown = document.getElementById("userDropdown");
+                if(menu.style.display === "flex"){
+                    menu.classList.remove("dropdownAnimated");
+                    setTimeout(function () {
+                        menu.style.display = "none";
+                      }, 200);
+                    arrow.style.transform = "rotate(0deg)";
+                    dropdown.style.backgroundColor = "#0c0a11";
+                    
+                }else{
+                    menu.style.display = "flex";
+                    arrow.style.transform = "rotate(180deg)";
+                    dropdown.style.backgroundColor = "#282828";
+                    setTimeout(function () {
+                        menu.classList.add("dropdownAnimated");
+                      }, 20);
+                }
+            }}>
+                <div id="navbar-icon" style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div><p id="navbar-username">{cookies.Username.slice(0,10)}</p><span id="arrow"></span>
+
+                <div id="logOutDropdown" ><button onClick={()=>Signout()}>Log out</button></div>
             </div>
         </ul>}
         </div>
@@ -113,6 +135,11 @@ return(
         nav.style.position = "relative";
         document.getElementById("nav-icon").classList.remove("open");
     }}}/>
+    {cookies.session!=undefined && 
+        <div id="mobile-profile">
+            <div style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div>
+        </div>
+      }
     </div>
     
     <div id="mobile-links">
