@@ -42,7 +42,7 @@ const Navbar = (props) =>{
         navigate('/')
     }
     function setDesktop(){
-    if (windowSize.innerWidth > 800){
+    if (windowSize.innerWidth > 700){
         return 'flex';
     }
     else{
@@ -50,7 +50,7 @@ const Navbar = (props) =>{
     }
     }
     function setMobile(){
-        if (windowSize.innerWidth <= 800){
+        if (windowSize.innerWidth <= 700){
             return 'flex';
         }
         else{
@@ -87,20 +87,28 @@ return(
                     setTimeout(function () {
                         menu.style.display = "none";
                       }, 200);
-                    arrow.style.transform = "rotate(0deg)";
+                    if(arrow !== null){
+                        arrow.style.transform = "rotate(0deg)";
+                    }
                     dropdown.style.backgroundColor = "#0c0a11";
                     
                 }else{
                     menu.style.display = "flex";
-                    arrow.style.transform = "rotate(180deg)";
+                    if(arrow !== null){
+                        arrow.style.transform = "rotate(180deg)";
+                    }
+                    
                     dropdown.style.backgroundColor = "#282828";
                     setTimeout(function () {
                         menu.classList.add("dropdownAnimated");
                       }, 20);
                 }
             }}>
-                <div id="navbar-icon" style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div><p id="navbar-username">{cookies.Username.slice(0,10)}</p><span id="arrow"></span>
-
+                <div id="navbar-icon" style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div>
+                {windowSize.innerWidth > 850 && <div>
+                    <p id="navbar-username">{cookies.Username.slice(0,10)}</p><span id="arrow"></span>
+                    </div>
+                }
                 <div id="logOutDropdown" ><button onClick={()=>Signout()}>Log out</button></div>
             </div>
         </ul>}
