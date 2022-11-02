@@ -221,14 +221,14 @@ font-weight: bold;
   
   #mobile-top {
     display: flex;
-    margin: 10px;
+    margin: 16px;
   }
   #mobile-top .Mobile-Searchbar {
     align-self: center;
     width: 100%;
     margin-left: 13px;
     box-sizing: border-box;
-    padding: 14px;
+    padding: 12px;
     padding-left: 20px;
     font-size: 16px;
     border-radius: 15px;
@@ -260,16 +260,27 @@ font-weight: bold;
   #topnav #mobile-links {
     display: none;
     flex-flow: column;
+    opacity: 0;
+    -webkit-transition: opacity 150ms ease-in-out;
+    -moz-transition: opacity 150ms ease-in-out;
+    -o-transition: opacity 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out;
   }
+
+  #topnav #mobile-links.mobile-nav-animate{
+    opacity: 1;
+  }
+
   #topnav #mobile-links .mobile-link {
     display: flex;
     flex-flow: row;
-    color: white;
+    color: #f0f0f0;
     padding: 18px 35px;
     text-decoration: none;
     font-size: 16px;
-    border-bottom: 1px solid #545454;
+    border-bottom: 1px solid #545454c4;
     justify-content: space-between;
+    transition: 200ms;
   }
   #topnav #mobile-links .mobile-link i {
     border: solid grey;
@@ -281,9 +292,9 @@ font-weight: bold;
     align-self: center;
   }
   #topnav #mobile-links .mobile-link:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #272727;
     cursor: pointer;
+    color:#f0f0f0;
   }
   #topnav #mobile-links .mobile-link:last-of-type {
     margin-bottom: 30px;
@@ -298,6 +309,9 @@ font-weight: bold;
     align-self: center;
     cursor: pointer;
     font-weight: bold;
+  }
+  #topnav #mobile-links button:hover {
+    transform: scale(1.05);
   }
   #topnav #mobile-links #mobile-signInBtn {
     color: white;
@@ -317,9 +331,9 @@ font-weight: bold;
   
   #nav-icon {
     align-self: center;
-    min-width: 36px;
+    min-width: 32px;
     height: 27px;
-    margin-left: 5px;
+    margin-left: 0px;
     transform: rotate(0deg);
     transition: 0.5s ease-in-out;
     cursor: pointer;
