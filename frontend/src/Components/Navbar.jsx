@@ -42,7 +42,7 @@ const Navbar = (props) =>{
         navigate('/')
     }
     function setDesktop(){
-    if (windowSize.innerWidth > 800){
+    if (windowSize.innerWidth > 700){
         return 'flex';
     }
     else{
@@ -50,7 +50,7 @@ const Navbar = (props) =>{
     }
     }
     function setMobile(){
-        if (windowSize.innerWidth <= 800){
+        if (windowSize.innerWidth <= 700){
             return 'flex';
         }
         else{
@@ -91,13 +91,19 @@ return(
             let links = document.getElementById("mobile-links");
             let nav = document.getElementById("topnav");
             if (links.style.display === "flex") {
-                links.style.display = "none";
-                nav.style.position = "relative";
+                links.classList.remove("mobile-nav-animate");
+                setTimeout(function () {
+                        links.style.display = "none";
+                        nav.style.position = "relative";
+                }, 150);
                 document.getElementById("nav-icon").classList.remove("open");
             } else {
                 document.getElementById("nav-icon").classList.add("open");
                 nav.style.position = "absolute";
                 links.style.display = "flex";
+                setTimeout(function () {
+                    links.classList.add("mobile-nav-animate");
+                }, 20);
             }}}>
             <span></span>
             <span></span>
@@ -113,6 +119,11 @@ return(
         nav.style.position = "relative";
         document.getElementById("nav-icon").classList.remove("open");
     }}}/>
+    {cookies.session!=undefined && 
+        <div id="mobile-profile">
+            <div style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div>
+        </div>
+      }
     </div>
     
     <div id="mobile-links">

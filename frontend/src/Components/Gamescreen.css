@@ -47,7 +47,7 @@
   
   #highScore {
     position: absolute;
-    top: 0px;
+    top: -8px;
     left: 10px;
     font-size: 17px;
     font-weight: 600;
@@ -56,8 +56,8 @@
   
   #score {
     position: absolute;
-    top: 0px;
-    right: 70px;
+    top: -8px;
+    right: 10px;
     font-size: 17px;
     font-weight: 600;
     color: white;
