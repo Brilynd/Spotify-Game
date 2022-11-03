@@ -7,7 +7,6 @@
     margin-top: 10px;
     color: white;
     font-weight: bold;
-    font-size: 3em;
     margin: 9px;
     border-radius: 7px;
     text-align: left;
@@ -17,18 +16,11 @@
     padding: 16px;
   }
 
-  @media only screen and (max-width: 500px) {
-    .flex-item { 
-      padding: 10px;
-    }
-  }
-
   .flex-item:has(img#Gamemode){
     aspect-ratio: auto;
   }
 
   .flex-item img {
-
     border: 0;
     aspect-ratio: 1/1;
     width: 100%;
@@ -36,9 +28,65 @@
     background-color: white;
     margin: 0;
     padding: 0;
-    margin-bottom: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
   }
+
+  .flex-item div.imageContainer{
+    position: relative;
+  }
+
+  .flex-item div.imageContainer div{
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    aspect-ratio: 1/1;
+    width: 30%;
+    max-width: 72px;
+    min-width: 47px;
+    height: auto;
+    background-color: #1ed760;
+    bottom: 8px;
+    right: 10px;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+    transition: 320ms;
+  }
+
+  .flex-item:hover div.imageContainer div{
+    opacity: 1;
+    bottom: 24px;
+    width: 30%;
+  }
+
+  .flex-item:hover div.imageContainer div:hover{
+    width: calc(30% + 4px);
+    max-width: 76px;
+    min-width: 51px;
+    transition: 300ms;
+  }
+
+  .flex-item:hover div.imageContainer div:hover #playBtn{
+    border-top: 14px solid transparent;
+    border-left: 19px solid black;
+    border-bottom: 14px solid transparent;
+    
+  }
+
+  #playBtn{
+    display: inline-block;
+    vertical-align: middle;
+    width: 0; 
+    height: 0;
+    border-top: 12px solid transparent;
+    border-left: 17px solid black;
+    border-bottom: 12px solid transparent;
+    margin-left: 5px;
+    align-self: center;
+    transition: 300ms;
+  }
+
   #Gamemode{
     border-radius: 50%;
     background-color: #272884;
@@ -70,12 +118,33 @@
     font-weight: 400;
     font-size: 13px;
   }
-
-  #Gamemode + p + p + p{
-    display: none;
-  }
   
   .flex-item:hover {
     background-color: #272727;
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .flex-item { 
+      padding: 10px;
+    }
+
+    .flex-item img{
+      margin-bottom: 6px;
+    }
+
+    #playBtn{
+      border-top: 9px solid transparent;
+      border-left: 14px solid black;
+      border-bottom: 9px solid transparent;
+    }
+
+    .flex-item div.imageContainer div{
+      bottom: 20px;
+    }
+
+    .flex-item:hover div.imageContainer div{
+      opacity: 1;
+      bottom: 20px;
+    }
   }

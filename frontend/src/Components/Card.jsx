@@ -10,7 +10,10 @@ const Card = ({ image, displayName, followers, artistID, type, route }) => {
         navigate(`${route}/${artistID}`);
       }}
     >
-      <img id={type == "Gamemode" ? "Gamemode" : "Artist"} src={image}></img>
+      <div class="imageContainer">
+        <img id={type == "Gamemode" ? "Gamemode" : "Artist"} src={image}></img>
+        <div><span id="playBtn"></span></div>
+      </div>
       <p>{displayName}</p>
       <p>{type}</p>
       {followers != null && <p>Followers: {followers}</p>}
