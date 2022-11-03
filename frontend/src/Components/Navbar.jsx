@@ -77,9 +77,39 @@ return(
             <a id="navbar-signin" href={loginUrl}> Sign In</a>
             <button id="navbar-signup">Sign Up</button>
         </ul>}
-       {cookies.session!=undefined && <ul className="Right-Navbar">
-            <div className="profileContainer">
-                <div id="navbar-icon" style={{background: `url('${cookies.UserProfile}') 50% 50% no-repeat`}}></div><p id="navbar-username">{cookies.Username}</p><button id="navbar-logout" onClick={()=>Signout()}>Log Out</button>
+       {cookies.session!=undefined && <ul id="profileContainer">
+            <div id="userDropdown" onClick={()=>{
+                let menu = document.getElementById("logOutDropdown");
+                let arrow = document.getElementById("arrow");
+                let dropdown = document.getElementById("userDropdown");
+                if(menu.style.display === "flex"){
+                    menu.classList.remove("dropdownAnimated");
+                    setTimeout(function () {
+                        menu.style.display = "none";
+                      }, 150);
+                    if(arrow !== null){
+                        arrow.style.transform = "rotate(0deg)";
+                    }
+                    dropdown.style.backgroundColor = "#0c0a11";
+                    
+                }else{
+                    menu.style.display = "flex";
+                    if(arrow !== null){
+                        arrow.style.transform = "rotate(180deg)";
+                    }
+                    
+                    dropdown.style.backgroundColor = "#282828";
+                    setTimeout(function () {
+                        menu.classList.add("dropdownAnimated");
+                      }, 20);
+                }
+            }}>
+                <div id="navbar-icon" style={{background: `url('${cookies.UserImage}') 50% 50%/cover no-repeat`}}></div>
+                {windowSize.innerWidth > 850 && <div>
+                    <p id="navbar-username">{cookies.Username}</p><span id="arrow"></span>
+                    </div>
+                }
+                <div id="logOutDropdown"><button onClick={()=>Signout()}>Log out</button></div>
             </div>
         </ul>}
         </div>
