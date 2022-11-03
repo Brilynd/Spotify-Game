@@ -39,6 +39,7 @@ const Navbar = (props) =>{
         
         removeCookie(['session'])
         removeCookie(['Username'])
+        props.Navbarsearch("")
         navigate('/')
     }
     function setDesktop(){

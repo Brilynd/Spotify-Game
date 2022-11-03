@@ -57,11 +57,14 @@ const App = () => {
       });
     }
   });
-
+  
   useEffect(()=>{
     if(session.session!=undefined){
       getArtistData(session.session)
       console.log(results)
+    }
+    else{
+      setResults([])
     }
   },[search])
   //NavbarSearch returns the searchbar input from the Navbar and passes up the value
