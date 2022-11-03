@@ -22,6 +22,7 @@
     border: 0;
     aspect-ratio: 1/1;
     width: 100%;
+    height: auto;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -29,7 +30,12 @@
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
   #Gamemode{
-    border-radius: 100%;
+    border-radius: 50%;
+    background-color: #272884;
+    opacity: 0.8;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #272884 40px ), repeating-linear-gradient( #c7309555, #c73095 );
+    outline: 4px solid white;
+    outline-offset: -4px;
   }
   #Artist{
     border-radius: 7px;

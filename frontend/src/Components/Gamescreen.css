@@ -47,8 +47,8 @@
 @keyframes greenAnimation {
   0%  {padding: 16px; opacity: 1; background-color: white;}
  5%  {padding:0px; opacity: 0; background-color: white;}
- 30%  {padding:16px; opacity: 1; background-color: rgb(56, 148, 56);}
- 70%  {padding:16px; opacity: 1; background-color: rgb(56, 148, 56);}
+ 30%  {padding:16px; opacity: 1; background-color: rgb(114, 214, 114);}
+ 70%  {padding:16px; opacity: 1; background-color: rgb(114, 214, 114);}
  90%  {padding:0px; opacity: 0; background-color: white;}
  100% {padding:16px; opacity: 1; background-color: white;}
 }
@@ -137,12 +137,30 @@
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-  main .imageItem .textContainer button:hover {
+
+  @media only screen and (max-width: 600px) {
+    main .imageItem .textContainer button {
+      width: 150px;
+      font-size: 15px;
+    }
+  }
+
+  @media (hover: hover) {
+    main .imageItem .textContainer button:hover {
+      cursor: pointer;
+      transition: 300ms;
+      background-color: #272727;
+      color: #1ED760;
+    }
+  }
+
+  main .imageItem .textContainer button.btnHover {
     cursor: pointer;
     transition: 300ms;
     background-color: #272727;
     color: #1ED760;
   }
+  
   main .image1 {
     
     background-color: rgb(206, 206, 206);
@@ -187,6 +205,13 @@
     font-weight: 700;
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  @media only screen and (max-width: 460px) {
+    #isOver button {
+      width: 150px;
+      font-size: 15px;
+    }
   }
 
   #isOver button:first-of-type{

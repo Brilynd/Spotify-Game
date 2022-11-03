@@ -78,7 +78,7 @@ const Gamescreen = (props) => {
     console.log(props.songTwo.popularity);
   }, [props.songTwo.popularity]);
   return (
-    <main>
+    <main id="mainGamescreen">
       {isOver == true && (
         <div id="isOver">
           <div>
@@ -137,17 +137,24 @@ const Gamescreen = (props) => {
           <span class="songName">{props.songTwo.name}</span>
           <br />
           has
+            {isRevealed && <br />}
+            {isRevealed && <span class="songScore"><CountUp end={songPopularity} duration={0.4} />/100</span>}
           <br />
-          <span class="songScore">
-            {isRevealed && <CountUp end={songPopularity} duration={0.4} />}
-            {isRevealed && "/100"}
-          </span>
-          <br />
-          <button id="btnHigher" onClick={() => isHigherThan()}>
+          <button id="btnHigher" onClick={() => {isHigherThan();
+            document.getElementById('btnHigher').classList.add("btnHover");
+          setTimeout(function () {
+            document.getElementById('btnHigher').classList.remove("btnHover");
+          }, 1400);          
+          }}>
             Higher
           </button>
           <br />
-          <button id="btnLower" onClick={() => isLowerThan()}>
+          <button id="btnLower" onClick={() => {isLowerThan();
+          document.getElementById('btnLower').classList.add("btnHover");
+          setTimeout(function () {
+            document.getElementById('btnLower').classList.remove("btnHover");
+          }, 1400); 
+          }}>
             Lower
           </button>
           <br />
