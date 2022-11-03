@@ -64,7 +64,7 @@
     width: calc(30% + 4px);
     max-width: 76px;
     min-width: 51px;
-    transition: 300ms;
+    transition: 100ms;
   }
 
   .flex-item:hover div.imageContainer div:hover #playBtn{
@@ -83,7 +83,7 @@
     border-bottom: 12px solid transparent;
     margin-left: 5px;
     align-self: center;
-    transition: 300ms;
+    transition: 100ms;
   }
 
   #Gamemode{
