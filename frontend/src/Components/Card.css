@@ -71,7 +71,6 @@
     border-top: 14px solid transparent;
     border-left: 19px solid black;
     border-bottom: 14px solid transparent;
-    
   }
 
   #playBtn{
@@ -137,6 +136,12 @@
       border-top: 9px solid transparent;
       border-left: 14px solid black;
       border-bottom: 9px solid transparent;
+    }
+
+    .flex-item:hover div.imageContainer div:hover #playBtn{
+      border-top: 11px solid transparent;
+      border-left: 16px solid black;
+      border-bottom: 11px solid transparent;
     }
 
     .flex-item div.imageContainer div{
