@@ -6,6 +6,7 @@ import CountUp from "react-countup";
 const Gamescreen = (props) => {
   const navigate = useNavigate();
   const [score, setScore] = useState(0);
+  const [correct, setCorrect] = useState(0);
   const [isOver, setIsOver] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
   const [songPopularity, setSongPopularity] = useState(10000);
@@ -19,30 +20,40 @@ const Gamescreen = (props) => {
   };
   const isHigherThan = async () => {
     setIsRevealed(true);
-    await delay(1000);
     if (props.songOne.popularity <= props.songTwo.popularity) {
+      setCorrect(2);
+      await delay(1000);
       await delay(500);
       setIsRevealed(false);
       await props.updateSongs();
       await delay(500);
       await setScore(score + 1);
+      setCorrect(0);
     } else {
+      setCorrect(1);
+      await delay(1000);
       await delay(500);
       await setIsOver(true);
+      setCorrect(0);
     }
   };
   const isLowerThan = async () => {
-    setIsRevealed(true);
-    await delay(1000);
+    setIsRevealed(true); 
     if (props.songOne.popularity >= props.songTwo.popularity) {
+      setCorrect(2);
+      await delay(1000);
       await delay(400);
       setIsRevealed(false);
       await props.updateSongs();
       await delay(400);
       await setScore(score + 1);
+      setCorrect(0);
     } else {
+      setCorrect(1);
+      await delay(1000);
       await delay(400);
       await setIsOver(true);
+      setCorrect(0);
     }
   };
   const updateScore = () => {
@@ -110,7 +121,9 @@ const Gamescreen = (props) => {
       </div>
       <p id="score">Score: {score} </p>
       <div id="VScircle">
-        <p>VS</p>
+        {correct == 0 && <p>VS</p>}
+        {correct == 1 && <p className="animateX">VS</p>}
+        {correct == 2 && <p className="animateCheck">VS</p>}
       </div>
       <div
         class="imageItem image2"

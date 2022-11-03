@@ -33,8 +33,9 @@
   
   @keyframes redAnimation {
     0%  {padding: 16px; opacity: 1; background-color: white;}
-   15%  {padding:0px; opacity: 0; background-color: white;}
-   70%  {padding:16px; opacity: 1; background-color: red;}
+   5%  {padding:0px; opacity: 0; background-color: white;}
+   30%  {padding:16px; opacity: 1; background-color: rgb(218, 60, 60);}
+   70%  {padding:16px; opacity: 1; background-color: rgb(218, 60, 60);}
    90%  {padding:0px; opacity: 0; background-color: white;}
    100% {padding:16px; opacity: 1; background-color: white;}
  }
@@ -45,8 +46,9 @@
 
 @keyframes greenAnimation {
   0%  {padding: 16px; opacity: 1; background-color: white;}
- 15%  {padding:0px; opacity: 0; background-color: white;}
- 70%  {padding:16px; opacity: 1; background-color: red;}
+ 5%  {padding:0px; opacity: 0; background-color: white;}
+ 30%  {padding:16px; opacity: 1; background-color: rgb(56, 148, 56);}
+ 70%  {padding:16px; opacity: 1; background-color: rgb(56, 148, 56);}
  90%  {padding:0px; opacity: 0; background-color: white;}
  100% {padding:16px; opacity: 1; background-color: white;}
 }
