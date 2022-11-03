@@ -104,7 +104,7 @@ return(
                       }, 20);
                 }
             }}>
-                <div id="navbar-icon" style={{background: `url('${cookies.UserImage}') 50% 50%/cover no-repeat`}}></div>
+                <div id="navbar-icon" style={{background: `url('${cookies.UserProfile}') 50% 50%/cover no-repeat`}}></div>
                 {windowSize.innerWidth > 850 && <div>
                     <p id="navbar-username">{cookies.Username}</p><span id="arrow"></span>
                     </div>
@@ -151,7 +151,7 @@ return(
     }}}/>
     {cookies.session!=undefined && 
         <div id="mobile-profile">
-            <div style={{background: `url('${props.image}') 50% 50%/cover no-repeat`}}></div>
+            <div style={{background: `url('${cookies.UserProfile}') 50% 50%/cover no-repeat`}}></div>
         </div>
       }
     </div>
