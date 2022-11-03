@@ -68,7 +68,6 @@ const Gamescreen = (props) => {
   }, [props.songTwo.popularity]);
   return (
     <main>
-      <button onClick={() => console.log(songPopularity)}>Logger</button>
       {isOver == true && (
         <div id="isOver">
           <div>
