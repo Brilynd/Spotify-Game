@@ -14,7 +14,17 @@
     transition: 0.3s;
     display: flex;
     flex-flow: column;
-    padding: 12px;
+    padding: 16px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .flex-item { 
+      padding: 10px;
+    }
+  }
+
+  .flex-item:has(img#Gamemode){
+    aspect-ratio: auto;
   }
 
   .flex-item img {
@@ -59,6 +69,10 @@
     color: #1ed760;
     font-weight: 400;
     font-size: 13px;
+  }
+
+  #Gamemode + p + p + p{
+    display: none;
   }
   
   .flex-item:hover {
