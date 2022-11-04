@@ -21,28 +21,28 @@ const Freeplay = () => {
    const getSongSelection = async (token) =>{
        spotify.getAccessToken(token);
        await spotify.getMe().then((user) => {
-        console.log(user)
         setUserID(user.id)
-        
-      });
+       })
        var getAlbumList = await spotify.getArtistAlbums(id);
        var albumList = []
-       var songList = []
        var songDetails = []
 
        const getAlbumTracks = getAlbumList.items.map(async(track)=>{
            var AlbumTracks = spotify.getAlbumTracks(track.id)
-           
+           console.log(await AlbumTracks)
            albumList.push(await AlbumTracks)
        })
        await Promise.all(getAlbumTracks)
       const getSongList = albumList.map((song)=>{
            song.items.map(songID=>{
+              console.log(songID.id)
                songDetails.push(songID.id)
            })
        })
+       
        await Promise.all(getSongList)
        const createSongObj = songDetails.map(async(songID)=>{
+            console.log(await songID)
             var SongData = spotify.getTrack(songID)
             var images
             if((await SongData).album.images.length!=0){
@@ -58,12 +58,13 @@ const Freeplay = () => {
                         })
        })
        await Promise.all(createSongObj)
+       console.log(songArr)
        setSongs(songArr)
        setSongTwo(randomNum(songArr.length))
        setSongOne(randomNum(songArr.length))
 
     }
-
+  
   useEffect(()=>{
       
       getSongSelection(session.session)

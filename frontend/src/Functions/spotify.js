@@ -2,9 +2,9 @@
 export const authEndpoint = 'https://accounts.spotify.com/authorize'
 
 //Redirects to our localhost after signin 
-const redirectUri = "http://localhost:3000/"
+const redirectUri = "https://spotify-higher-lower.netlify.app/"
 //This is app specific key that allows us to use spotify's sign in page
-const clientId = 'c5ba0f4990564720b3d7b56b4e290c6c'
+const clientId = '22d8207a20174a40b4cbd24e41cc1424'
 //perms for the API request
 const scopes = [
     'user-read-private'
