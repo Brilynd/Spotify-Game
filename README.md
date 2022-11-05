@@ -13,7 +13,7 @@ Serve the page with your chosen program (i.e. `serve -s build`)
 
 ## Using the program
 Due to the fact Spotify requires only authorized users to use their Api, in order to be added as an authorized user please email me with your Spotify's account email
-so I can add you as an authorized user.
+so I can add you as an authorized user. My email is madeyabrilynd@gmail.com
 
 ### Gameplay Setup
 Sign in - Click the button in the right hand corner that says "Sign-in" to allow you to use the API
