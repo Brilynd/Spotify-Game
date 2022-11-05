@@ -1,6 +1,8 @@
 # Spotify Higher Lower Game
 A website that allows you to compete with other online to determine who knows an artist better by accumulating points by properly guessing the songs popularity vs another song
 
+![Screenshot](HomePage.png)
+
 ## Running the program
 In the project directory, you can run:
 
@@ -27,5 +29,7 @@ Game Modes - For now we only support one gamemode that allows the user to decide
 Gameplay Mechanic - The game loop is to see given two songs by a select artist, how many songs can you seccessfully determine if they are more or less popular.
 
 Points Mechanic - For each song you properly cateogorize you get a point. total points are based on how many songs you got right consecutively.
+
+
 
 Loss Condition - If you incorrectly cateogorize the song (Higher or Lower) popularity then the song on the left. you lose and your total points scored in that round are saved.
