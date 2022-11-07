@@ -33,15 +33,18 @@
     font-size: 20px;
   }
 
-  #VScircle:has(svg){
-    background-color: transparent;
+  #VScircle:has(svg#svgCorrect){
+    background-color: #73AF55;
+  }
+
+  #VScircle:has(svg#svgIncorrect){
+    background-color: #D06079;
   }
 
  #VScircle svg {
     width: 100px;
     display: block;
     border-radius: 50%;
-    background-color: white;
     padding: 2px;
   }
   
