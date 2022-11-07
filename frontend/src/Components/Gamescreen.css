@@ -19,39 +19,86 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    width: 66px;
+    height: 66px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
   }
   #VScircle p {
-    background-color: white;
-    padding: 16px;
-    border-radius: 50%;
     font-weight: 500;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
   }
-  #VScircle p.animateX {
-    animation: redAnimation 2.7s;
+
+  #VScircle:has(svg){
+    background-color: transparent;
+  }
+
+ #VScircle svg {
+    width: 100px;
+    display: block;
+    border-radius: 50%;
+    background-color: white;
+    padding: 2px;
   }
   
-  @keyframes redAnimation {
-    0%  {padding: 16px; opacity: 1; background-color: white;}
-   5%  {padding:0px; opacity: 0; background-color: white;}
-   30%  {padding:16px; opacity: 1; background-color: rgb(218, 60, 60);}
-   70%  {padding:16px; opacity: 1; background-color: rgb(218, 60, 60);}
-   90%  {padding:0px; opacity: 0; background-color: white;}
-   100% {padding:16px; opacity: 1; background-color: white;}
- }
-
- #VScircle p.animateCheck {
-  animation: greenAnimation 2.7s;
-}
-
-@keyframes greenAnimation {
-  0%  {padding: 16px; opacity: 1; background-color: white;}
- 5%  {padding:0px; opacity: 0; background-color: white;}
- 30%  {padding:16px; opacity: 1; background-color: rgb(114, 214, 114);}
- 70%  {padding:16px; opacity: 1; background-color: rgb(114, 214, 114);}
- 90%  {padding:0px; opacity: 0; background-color: white;}
- 100% {padding:16px; opacity: 1; background-color: white;}
-}
+  .path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+    .path.circle {
+      -webkit-animation: dash .9s ease-in-out;
+      animation: dash .9s ease-in-out;
+    }
+    .path.line {
+      stroke-dashoffset: 1000;
+      -webkit-animation: dash .9s ease-in-out forwards;
+      animation: dash .9s ease-in-out forwards;
+    }
+    .path.check {
+      stroke-dashoffset: -100;
+      -webkit-animation: dash-check .9s ease-in-out forwards;
+      animation: dash-check .9s ease-in-out forwards;
+  }
+  
+  @-webkit-keyframes dash {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @-webkit-keyframes dash-check {
+    0% {
+      stroke-dashoffset: -100;
+    }
+    100% {
+      stroke-dashoffset: 900;
+    }
+  }
+  
+  @keyframes dash-check {
+    0% {
+      stroke-dashoffset: -100;
+    }
+    100% {
+      stroke-dashoffset: 900;
+    }
+  }
 
   a {
     color: #1ED760;

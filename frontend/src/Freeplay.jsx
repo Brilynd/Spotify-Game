@@ -79,7 +79,7 @@ const Freeplay = () => {
 
   return (
     <div style={{height:'100vh',display:'flex',flexFlow:'column'}}>
-      <Navbar />
+      {/* <Navbar /> */}
       {songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs} artistID ={id} artistName = {id} userId = {userID} userName = {session.Username}/>}
     </div>
   );

@@ -11,7 +11,7 @@ const Card = ({ image, displayName, followers, artistID, type, route }) => {
       }}
     >
       <div class="imageContainer">
-        <img id={type == "Gamemode" ? "Gamemode" : "Artist"} src={image}></img>
+        <img id={type === "Gamemode" ? "Gamemode" : "Artist"} src={image} alt=""></img>
         <div><span id="playBtn"></span></div>
       </div>
       <p>{displayName}</p>

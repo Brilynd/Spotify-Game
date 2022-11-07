@@ -85,14 +85,16 @@
     align-self: center;
     transition: 100ms;
   }
-
   #Gamemode{
     border-radius: 50%;
     background-color: #272884;
     opacity: 0.8;
     background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #272884 40px ), repeating-linear-gradient( #c7309555, #c73095 );
-    outline: 4px solid white;
-    outline-offset: -4px;
+    /* outline: 4px solid white;
+    outline-offset: -4px; */
+    border: 2px solid white;
+    box-shadow: inset 0px 0px 3px 1px white;
+    box-sizing: border-box;
   }
   #Artist{
     border-radius: 7px;
