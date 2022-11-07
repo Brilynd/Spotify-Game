@@ -190,6 +190,13 @@
       width: 150px;
       font-size: 15px;
     }
+    #VScircle {
+      width:  56px;
+      height: 56px;
+    }
+    #VScircle p{
+      font-size: 16px;
+    }
   }
 
   @media (hover: hover) {
@@ -259,6 +266,14 @@
       width: 150px;
       font-size: 15px;
     }
+    #VScircle {
+      width:  52px;
+      height: 52px;
+    }
+    #VScircle p{
+      font-size: 15px;
+    }
+
   }
 
   #isOver button:first-of-type{
