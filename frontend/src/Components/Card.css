@@ -97,6 +97,7 @@
     box-sizing: border-box;
   }
   #Artist{
+    border: none;
     border-radius: 7px;
   }
   .flex-item p {
