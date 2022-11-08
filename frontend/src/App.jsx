@@ -91,7 +91,12 @@ const App = () => {
       <p>Start by searching for an artist to use for the game
       <br/><span>After selecting, choose gamemode</span></p>
       <button onClick={()=>{
-        document.getElementById("search-bar").focus();
+        if(document.getElementById("topnav").style.display!="none"){
+          document.getElementById("mob-search-bar").focus();
+        }
+          
+          document.getElementById("search-bar").focus();
+          
       }}>Search for Artist</button>
       </div>
       }

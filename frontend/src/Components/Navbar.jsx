@@ -105,7 +105,7 @@ return(
             <span></span>
         </div>
         <DebounceInput  minLength={1}
-  debounceTimeout={500} type="text" placeholder="Search Artist" onChange={(e)=>props.Navbarsearch(e.target.value)} className="Mobile-Searchbar" id={"search-bar"} onFocus={()=>{
+  debounceTimeout={500} type="text" placeholder="Search Artist" onChange={(e)=>props.Navbarsearch(e.target.value)} className="Mobile-Searchbar" id={"mob-search-bar"} onFocus={()=>{
     let links = document.getElementById("mobile-links");
     let nav = document.getElementById("topnav");
     if (links.style.display === "flex") {
