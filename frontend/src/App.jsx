@@ -81,7 +81,7 @@ const App = () => {
         <h1>What song has more popularity?</h1>
         <p>A frustratingly addictive game of higher or lower using song popularity.<br/>The data is based on the current song popularity.</p>
         <button onClick={()=>{window.location.href = loginUrl;}}>Sign in with Spotify</button>
-        <p>Sign in to get started</p>
+        <p>Sign in to play</p>
       </div>}
       {session.session!==undefined && <div>
       <Navbar Navbarsearch={(search) => setSearch(search)} image ={image}/>
