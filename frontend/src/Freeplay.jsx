@@ -1,5 +1,6 @@
 import Navbar from "./Components/Navbar";
 import Gamescreen from "./Components/Gamescreen";
+import LoadingEffect from "./Components/LoadingEffect";
 import "./Freeplay.css";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState,useEffect } from "react";
@@ -16,9 +17,11 @@ const Freeplay = () => {
   const [songOne,setSongOne] = useState(randomNum(songs.length))
   const [songTwo,setSongTwo] = useState()
   const [userID,setUserID] = useState("")
+  const [isLoading,setIsLoading] = useState(false);
   var artistName = ""
   var songArr = [];
    const getSongSelection = async (token) =>{
+        setIsLoading(true);
        spotify.getAccessToken(token);
        await spotify.getMe().then((user) => {
         setUserID(user.id)
@@ -62,7 +65,7 @@ const Freeplay = () => {
        setSongs(songArr)
        setSongTwo(randomNum(songArr.length))
        setSongOne(randomNum(songArr.length))
-
+       setIsLoading(false);
     }
   
   useEffect(()=>{
@@ -79,8 +82,8 @@ const Freeplay = () => {
 
   return (
     <div style={{height:'100vh',display:'flex',flexFlow:'column'}}>
-      {/* <Navbar /> */}
-      {songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs} artistID ={id} artistName = {id} userId = {userID} userName = {session.Username}/>}
+      {isLoading && <LoadingEffect />}
+      {!isLoading && songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs} artistID ={id} artistName = {id} userId = {userID} userName = {session.Username}/>}
     </div>
   );
 };
