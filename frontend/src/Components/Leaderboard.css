@@ -2,6 +2,7 @@
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
+  padding-bottom: 5%;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
@@ -32,7 +33,7 @@
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 10px solid #009879;
 }
 
 .content-table tbody tr.active-row {
