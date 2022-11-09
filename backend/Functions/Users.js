@@ -25,11 +25,12 @@ async function AddUserScore(client,userInfo){
 //Returns the users current scoreboard of previous game data
 
 async function GetUserScoreboard(client,userInfo){
+    console.log(userInfo)
     try{
         await client.connect()
-        const response = await client.db('Spotify-Higher-Lower').collection('UserInfo').findOne({UserID:userInfo.UserID})
-        console.log(await response.Score)
-        return await response.Score
+        var response = await client.db('Spotify-Higher-Lower').collection('UserInfo').findOne({UserID:userInfo.UserID})
+        console.log(await response)
+        return await response
 
     }
     catch(e){
