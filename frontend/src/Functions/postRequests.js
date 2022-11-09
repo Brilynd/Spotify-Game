@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Route } from "react-router";
 
-const URL = "http://localhost:5000/"
+const URL = "https://spotify-higher-lower-backend.herokuapp.com/"
 
 //Sends post request to backend to create new user
 export const createUser= async function(userObj){

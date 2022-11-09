@@ -18,7 +18,7 @@ return(
     <div>
         <BackgroundEffect/>
         <Navbar/>
-        <Leaderboard/>
+        <Leaderboard />
     </div>
 )
 }

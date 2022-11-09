@@ -18,27 +18,38 @@ const Leaderboard = () => {
     },
   ];
   return (
-    <table class="content-table">
-      <thead>
+    <div class="Display-Table-Container">
+    <h1 class="Display-Table-Header">Previous Scores</h1>
+    <table class="Display-Table">
+        
+        <thead>
+            <th>Index</th>
+            <th>Score</th>
+            <th>Artist Name</th>
+            <th>Username</th>
+        </thead>
         <tr>
-          {Headers.map((item) => {
-            return <th>{item}</th>;
-          })}
+            <td>0</td>
+            <td>25</td>
+            <td>Juice Wrld</td>
+            <td>Brilynd</td>
         </tr>
-      </thead>
-      <tbody>
-        {Data.map((item, index) => {
-          return (
-            <tr>
-              <td>{index}</td>
-              <td>{item.Artist}</td>
-              <td>{item.Username}</td>
-              <td>{item.Score}</td>
-            </tr>
-          );
-        })}
-      </tbody>
+
+        <tr>
+            <td>0</td>
+            <td>25</td>
+            <td>Juice Wrld</td>
+            <td>Brilynd</td>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>25</td>
+            <td>Juice Wrld</td>
+            <td>Brilynd</td>
+        </tr>
     </table>
+</div>
   );
 };
 export default Leaderboard;
