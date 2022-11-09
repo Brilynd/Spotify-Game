@@ -18,7 +18,7 @@ const Freeplay = () => {
   const [songTwo,setSongTwo] = useState()
   const [userID,setUserID] = useState("")
   const [isLoading,setIsLoading] = useState(false);
-  var artistName = ""
+ const [artistName,setArtistName] = useState("")
   var songArr = [];
    const getSongSelection = async (token) =>{
         setIsLoading(true);
@@ -27,25 +27,24 @@ const Freeplay = () => {
         setUserID(user.id)
        })
        var getAlbumList = await spotify.getArtistAlbums(id);
+      //  setArtistName((await getAlbumList).items[0].artists[0].name)
+       setArtistName(getAlbumList.items[0].artists[0].name)
        var albumList = []
        var songDetails = []
 
        const getAlbumTracks = getAlbumList.items.map(async(track)=>{
            var AlbumTracks = spotify.getAlbumTracks(track.id)
-           console.log(await AlbumTracks)
            albumList.push(await AlbumTracks)
        })
        await Promise.all(getAlbumTracks)
       const getSongList = albumList.map((song)=>{
            song.items.map(songID=>{
-              console.log(songID.id)
                songDetails.push(songID.id)
            })
        })
        
        await Promise.all(getSongList)
        const createSongObj = songDetails.map(async(songID)=>{
-            console.log(await songID)
             var SongData = spotify.getTrack(songID)
             var images
             if((await SongData).album.images.length!=0){
@@ -61,7 +60,6 @@ const Freeplay = () => {
                         })
        })
        await Promise.all(createSongObj)
-       console.log(songArr)
        setSongs(songArr)
        setSongTwo(randomNum(songArr.length))
        setSongOne(randomNum(songArr.length))
@@ -83,7 +81,7 @@ const Freeplay = () => {
   return (
     <div style={{height:'100vh',display:'flex',flexFlow:'column'}}>
       {isLoading && <LoadingEffect />}
-      {!isLoading && songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs} artistID ={id} artistName = {id} userId = {userID} userName = {session.Username}/>}
+      {artistName!=''&&!isLoading && songs.length!=0 && <Gamescreen songOne={songs[songOne]} songTwo={songs[songTwo]} updateSongs={getNewSongs} artistID ={id} artistName = {artistName} userId = {userID} userName = {session.Username}/>}
     </div>
   );
 };

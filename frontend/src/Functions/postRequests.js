@@ -30,7 +30,7 @@ export const getUserScores= async function(userObj){
   .post(`${URL+Route}`, userObj)
   .then((res) => {
     console.log(res.data)
-    return res
+    return res.data
   });
  return await Response
 }

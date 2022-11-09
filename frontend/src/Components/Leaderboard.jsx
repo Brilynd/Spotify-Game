@@ -1,22 +1,14 @@
 // {Headers,Data}
 import React from "react";
 import "./Leaderboard.css";
-const Leaderboard = () => {
+const Leaderboard = ({Scoreboard}) => {
+    console.log(Scoreboard)
+   if(Scoreboard!=undefined){
+    console.log(Scoreboard.Score)
+   }
+   
+
   const Headers = ["Index", "Artist", "Username", "Score"];
-  const Data = [
-    {
-      Username: "Brilynd Madeya",
-      Artist: "JuiceWrld",
-      Date: "11/1/2022",
-      Score: 20,
-    },
-    {
-      Username: "Brilynd Madeya",
-      Artist: "JuiceWrld",
-      Date: "11/1/2022",
-      Score: 15,
-    },
-  ];
   return (
     <div class="Display-Table-Container">
     <h1 class="Display-Table-Header">Previous Scores</h1>
@@ -25,29 +17,19 @@ const Leaderboard = () => {
         <thead>
             <th>Index</th>
             <th>Score</th>
-            <th>Artist Name</th>
             <th>Username</th>
+            <th>Artist Name</th>
         </thead>
-        <tr>
-            <td>0</td>
-            <td>25</td>
-            <td>Juice Wrld</td>
-            <td>Brilynd</td>
-        </tr>
-
-        <tr>
-            <td>0</td>
-            <td>25</td>
-            <td>Juice Wrld</td>
-            <td>Brilynd</td>
-        </tr>
-
-        <tr>
-            <td>0</td>
-            <td>25</td>
-            <td>Juice Wrld</td>
-            <td>Brilynd</td>
-        </tr>
+        {Scoreboard!=undefined&&Scoreboard['Score'].map((Score,index)=>{
+            return(
+                <tr>
+                <td>{index}</td>
+                <td>{Scoreboard.Score[index].Score}</td>
+                <td>{Scoreboard.Username}</td>
+                <td>{Scoreboard.Score[index].Artist}</td>
+            </tr>
+            )
+        })}
     </table>
 </div>
   );
